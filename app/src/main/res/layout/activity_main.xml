@@ -8,7 +8,7 @@
     android:backgroundTint="@color/black"
     tools:context=".MainActivity">
 
-    <com.example.customview.LiquidBowl
+    <com.example.customview.View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
