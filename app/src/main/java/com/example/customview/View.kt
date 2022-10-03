@@ -12,16 +12,19 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.annotation.RequiresApi
 import kotlin.properties.Delegates
+
 @RequiresApi(Build.VERSION_CODES.O)
 class View(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     private var viewWith by Delegates.notNull<Float>()
     private var viewHeight by Delegates.notNull<Float>()
     private var currentValue = 0f
+    private var paint = Paint()
 
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null)
         animator()
+
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -35,7 +38,7 @@ class View(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         setMeasuredDimension(w, h)
     }
 
-    private fun animator(){
+    private fun animator() {
         val valueAnimator = ValueAnimator.ofFloat(-1f, 1f)
         valueAnimator.apply {
             duration = 2000
@@ -50,9 +53,9 @@ class View(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         }
     }
 
+
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-
     }
 
 
